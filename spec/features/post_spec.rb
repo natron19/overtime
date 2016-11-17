@@ -53,6 +53,15 @@ describe 'navigate' do
     end
   end
 
+  describe 'new' do
+
+    it 'has a link from home page' do
+      visit root_path
+      click_link("new_post_from_nav")
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   describe 'creation' do
 
     before do
@@ -64,7 +73,7 @@ describe 'navigate' do
 
       visit posts_path
 
-      click_link("edit_#{post.id}")
+      click_link("edit_#{@post.id}")
       expect(page.status_code).to eq(200)
 
     end
@@ -77,6 +86,17 @@ describe 'navigate' do
       click_on "Save"
       expect(User.last.posts.last.rationale).to eq("Edited content")
     end
+  end
+
+  describe 'delete' do
+    it 'can be deleted' do
+      @post = FactoryGirl.create(:post)
+      visit posts_path
+
+      click_link("delete_post_#{@post.id}_from_index")
+      expect(page.status_code).to eq(200)
+    end
+
   end
 
 
