@@ -20,6 +20,8 @@ gem 'bourbon'
 
 gem 'pundit', '~> 1.1'
 
+gem 'puma', '~> 3.6'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
