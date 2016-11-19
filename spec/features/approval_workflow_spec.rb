@@ -29,7 +29,7 @@ describe 'navigate' do
 
       visit edit_post_path(@post)
 
-      expect(path).to_not have_content("Approved")
+      expect(page).to_not have_content("Approved")
 
     end
 
