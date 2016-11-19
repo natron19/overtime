@@ -5,11 +5,11 @@
 puts "2 users created"
 
 100.times do |post|
-  Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: @user1.id)
+  Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: @user1.id, overtime_request: 2.5)
 end
 puts "100 posts added"
 
 50.times do |post|
-  Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: @user2.id)
+  Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: @user2.id, overtime_request: 1.5)
 end
 puts "50 posts added"

@@ -5,7 +5,7 @@ describe 'navigate' do
   let(:user) { FactoryGirl.create(:user) }
 
   let(:post) do
-    Post.create(date: Date.today, rationale: "Rationale", user_id: user.id)
+    Post.create(date: Date.today, rationale: "Rationale", user_id: user.id, overtime_request: 1.3)
   end
 
   before do
@@ -58,13 +58,16 @@ describe 'navigate' do
     it "can be ceated from a new form page" do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "Some rationale"
-      click_on "Save"
-      expect(page).to have_content("Some rationale")
+      fill_in 'post[overtime_request]', with: 1.0
+
+      expect { click_on "Save" }.to change(Post, :count).by(1)
+      #expect(page).to have_content("Some rationale")
     end
 
     it 'will have a user assocaited with it' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "User Association"
+      fill_in 'post[overtime_request]', with: 1.9
       click_on "Save"
       expect(User.last.posts.last.rationale).to eq("User Association")
     end
@@ -81,14 +84,6 @@ describe 'navigate' do
 
   describe 'edit' do
 
-    # before do
-    #   # @post = FactoryGirl.create(:post)
-
-    #   @edit_user = User.create(first_name: 'asdf', last_name: 'asdf', email: 'asdf@asdf.com', password: 'asdfasdf', password_confirmation: 'asdfasdf')
-    #   login_as(@edit_user, :scope => :user)
-    #   @edit_post = Post.create(date: Date.today, rationale: 'asdf', user_id: @edit_user.id)
-
-    # end
 
     it 'can be edited' do
       visit edit_post_path(post)
@@ -119,7 +114,7 @@ describe 'navigate' do
       delete_user = FactoryGirl.create(:user)
       login_as(delete_user, :scope => :user)
 
-      post_to_delete = Post.create(date: Date.today, rationale: 'asdf', user_id: delete_user.id)
+      post_to_delete = Post.create(date: Date.today, rationale: 'asdf', user_id: delete_user.id, overtime_request: 2.2)
       visit posts_path
 
       click_link("delete_post_#{post_to_delete.id}_from_index")
