@@ -3,6 +3,7 @@ module Admin
     # To customize the behavior of this controller,
     # simply overwrite any of the RESTful actions. For example:
     #
+    before_action :authenticate_user!
     # def index
     #   super
     #   @resources = AdminUser.all.paginate(10, params[:page])
