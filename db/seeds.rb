@@ -1,6 +1,16 @@
-@user1 = User.create(email: "user@example.com", password: "password", password_confirmation: "password", first_name: "Jon", last_name: "Snow")
+@user1 = User.create(email: "user@example.com",
+                    password: "password",
+                    password_confirmation: "password",
+                    first_name: "Jon",
+                    last_name: "Snow",
+                    phone: ENV["TWILIO_TEST_PHONE"])
 
-@user2 = AdminUser.create(email: "admin@example.com", password: "password", password_confirmation: "password", first_name: "Admin", last_name: "Smith")
+@user2 = AdminUser.create(email: "admin@example.com",
+                        password: "password",
+                        password_confirmation: "password",
+                        first_name: "Admin",
+                        last_name: "Smith",
+                        phone: ENV["TWILIO_TEST_PHONE"])
 
 puts "2 users created"
 

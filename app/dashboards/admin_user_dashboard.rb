@@ -17,20 +17,20 @@ class AdminUserDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime.with_options(searchable: false),
     type: Field::String.with_options(searchable: false),
     phone: Field::String.with_options(searchable: false),
-    ssn: Field::Number.with_options(searchable: true),
-    company: Field::String.with_options(searchable: false),
+    #ssn: Field::Number.with_options(searchable: true),
+    #company: Field::String.with_options(searchable: false),
   }.freeze
 
   COLLECTION_ATTRIBUTES = [
     :posts,
     :email,
-    :ssn,
+    #:ssn,
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = [
     :posts,
-    :ssn,
-    :company,
+    #:ssn,
+    #:company,
     :email,
     :phone,
     :sign_in_count,
@@ -46,12 +46,12 @@ class AdminUserDashboard < Administrate::BaseDashboard
   ].freeze
 
   FORM_ATTRIBUTES = [
-    :ssn,
+    #:ssn,
     :email,
     :password,
     :first_name,
     :last_name,
-    :company,
+    #:company,
     :type,
     :phone,
   ].freeze
