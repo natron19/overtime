@@ -22,6 +22,8 @@ gem 'pundit', '~> 1.1'
 
 gem 'puma', '~> 3.6'
 
+gem 'twilio-ruby', '~> 4.11.1'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
