@@ -23,3 +23,15 @@ puts "100 posts added"
   Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: @user2.id, overtime_request: 1.5)
 end
 puts "50 posts added"
+
+30.times do |audit_log|
+  AuditLog.create!(user_id: @user1.id, status: 0, start_date: (Date.today - 6.days))
+end
+
+puts "30 audit logs added for user 1"
+
+20.times do |audit_log|
+  AuditLog.create!(user_id: @user2.id, status: 0, start_date: (Date.today - 6.days))
+end
+
+puts "20 audit logs added for user 2"
