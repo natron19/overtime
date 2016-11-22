@@ -26,6 +26,8 @@ gem 'twilio-ruby', '~> 4.11.1'
 
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
+gem 'kaminari', '~> 0.17.0'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
@@ -35,10 +37,7 @@ group :development, :test do
 end
 
 group :development do
-
   gem 'web-console', '~> 2.0'
-
-
   gem 'spring'
 end
 
