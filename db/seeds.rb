@@ -25,8 +25,8 @@ end
 end
 puts "30 posts added"
 
-30.times do |audit_log|
-  AuditLog.create!(user_id: @user1.id, status: 0, start_date: (Date.today - 6.days))
-end
+AuditLog.create!(user_id: @user1.id, status: 0, start_date: (Date.today - 6.days))
+AuditLog.create!(user_id: @user1.id, status: 0, start_date: (Date.today - 13.days))
+AuditLog.create!(user_id: @user1.id, status: 0, start_date: (Date.today - 20.days))
 
 puts "30 audit logs added for user 1"

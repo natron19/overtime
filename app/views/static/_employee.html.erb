@@ -1,10 +1,12 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-5 column jumbotron employee-block">
+    <div class="pending-homepage employee-block">
+      <h3>Pending your confirmation</h3>
+      <%= render partial: 'pending_audit_confirmations', lcoals: { pending_audit_confirmations: @pending_audit_confirmations} %>
+    </div>
+    <div class="pending-homepage employee-block">
       asdf
     </div>
-    <div class="col-md-5 column jumbotron employee-block">
-      asdf
-    </div>
+
   </div>
 </div>
